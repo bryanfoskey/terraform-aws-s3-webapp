@@ -65,6 +65,9 @@ resource "aws_s3_bucket_policy" "policy" {
     ]
 }
 EOF
+depends_on = [
+    aws_s3_bucket_public_access_block.bucket
+  ]
 }
 
 resource "aws_s3_object" "webapp" {
